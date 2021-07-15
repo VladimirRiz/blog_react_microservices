@@ -2,7 +2,7 @@ import React from 'react';
 import PostCreate from './components/PostCreate';
 
 const App = () => (
-  <div>
+  <div className="container">
     <h1>Create Post</h1>
     <PostCreate />
   </div>
