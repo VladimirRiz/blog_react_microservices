@@ -6,6 +6,7 @@ const CommentList = ({ postId }) => {
 
 	useEffect(() => {
 		fetchComments();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const fetchComments = async () => {
@@ -14,8 +15,6 @@ const CommentList = ({ postId }) => {
 		);
 		setComments(res.data);
 	};
-
-	console.log(comments);
 
 	const renderedComments = comments.map((comment) => (
 		<li key={comment.id}>{comment.content}</li>

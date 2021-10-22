@@ -11,8 +11,7 @@ const commentsById = {};
 
 app.get("/posts/:id/comments", (req, res) => {
 	const { id } = req.params;
-	console.debug(commentsById[id]);
-	res.status(201).send(commentsById[id] || []);
+	res.send(commentsById[id] || []);
 });
 
 app.post("/posts/:id/comments", (req, res) => {
