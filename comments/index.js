@@ -1,6 +1,7 @@
 const express = require("express");
 const { randomBytes } = require("crypto");
 const cors = require("cors");
+const axios = require("axios");
 
 const app = express();
 
@@ -24,6 +25,15 @@ app.post("/posts/:id/comments", (req, res) => {
 		content,
 	});
 	commentsById[id] = comments;
+
+	axios.post("http://localhost:4005/events", {
+		type: "CommentCreated",
+		data: {
+			id: commentId,
+			content,
+			postId: id,
+		},
+	});
 
 	res.status(201).send(comments);
 });
