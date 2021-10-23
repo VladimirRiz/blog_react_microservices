@@ -23,6 +23,7 @@ app.post("/posts/:id/comments", (req, res) => {
 	comments.push({
 		id: commentId,
 		content,
+		status: "pending",
 	});
 	commentsById[id] = comments;
 
@@ -32,6 +33,7 @@ app.post("/posts/:id/comments", (req, res) => {
 			id: commentId,
 			content,
 			postId: id,
+			status: "pending",
 		},
 	});
 
